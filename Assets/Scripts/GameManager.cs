@@ -17,7 +17,12 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
-public void GameStateUpdate(GameState newState)
+
+    private void Start()
+    {
+        GameStateUpdate(GameState.MainMenu);
+    }
+    public void GameStateUpdate(GameState newState)
     {
         State = newState;
 
@@ -32,8 +37,7 @@ public void GameStateUpdate(GameState newState)
             case GameState.Win:
                 break;
             default:
-                print("ops");
-                break;
+                throw new ArgumentOutOfRangeException(nameof (newState), newState, null);
         }
 
         OnGameStateChange?.Invoke(newState);
