@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,13 +8,9 @@ public class PlayerController : MonoBehaviour
     private bool activatePressed;
     private bool switchCollision;
   private Switch SwitchFunc;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+    public static event Action DamageAdded;
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.E) && switchCollision)
@@ -27,8 +24,14 @@ public class PlayerController : MonoBehaviour
         
         switchCollision = (collision.gameObject.tag == "Switch");
         SwitchFunc = collision.gameObject.GetComponent<Switch>();
-        
-       
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if (collision.gameObject.tag != "Damage") return;
+
+        DamageAdded();
     }
 }

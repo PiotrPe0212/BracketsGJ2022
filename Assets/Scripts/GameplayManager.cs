@@ -7,20 +7,23 @@ public class GameplayManager : MonoBehaviour
 
     [SerializeField] private GameObject player;
     [SerializeField] private Vector3 initPos = new Vector3(0, 0, 0);
-    [SerializeField] private int InitMentalHealth = 10;
+    public static int InitMentalHealth = 10;
+
     private bool gameStarted = false;
     public int ActualMentalHealth;
-
+    public int demageValue;
 
     private void Awake()
     {
         GameManager.OnGameStateChange += OnStateChangeMenuChange;
+        PlayerController.DamageAdded += ChangeHealth;
     }
     private void OnDestroy()
     {
         GameManager.OnGameStateChange -= OnStateChangeMenuChange;
+        PlayerController.DamageAdded -= ChangeHealth;
     }
-    // Start is called before the first frame update
+   
     private void OnStateChangeMenuChange(GameManager.GameState newState)
     {
         if(newState == GameManager.GameState.PlayGame)
@@ -30,16 +33,16 @@ public class GameplayManager : MonoBehaviour
 
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void ChangeHealth()
     {
-        
+        ActualMentalHealth -= demageValue;
     }
 
-    // Update is called once per frame
+
     void FixedUpdate()
     {
-        
+        if (!gameStarted) return;
+        if (ActualMentalHealth <= 0)  GameManager.Instance.GameStateUpdate(GameManager.GameState.Lose);
     }
 
     private void InitFunction()

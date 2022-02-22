@@ -12,8 +12,7 @@ public class CameraController : MonoBehaviour
     private GameObject player;
     Vector3 initialPos = new Vector3(-8f, 5f, -1f);
     private bool correctInitPos;
- 
-    // Update is called once per frame
+
     void LateUpdate()
     {
         player = GameObject.Find("player");
