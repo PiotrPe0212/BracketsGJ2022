@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,24 +13,31 @@ public class HealthController : MonoBehaviour
     public int healthScale;
     private float actualPlayerHealth;
     private Slider sliderPlayer;
-    private float healthLoose;
+    private float healthLoose = 1;
     private void Awake()
     {
+        GameManager.OnGameStateChange += OnStateChangeMenuChange;
         PlayerController.DamageAdded += PlayerHealthLoos;
+        sliderPlayer = gameObject.GetComponent < Slider>();
       
     }
 
     private void OnDestroy()
     {
+        GameManager.OnGameStateChange -= OnStateChangeMenuChange;
         PlayerController.DamageAdded -= PlayerHealthLoos;
 
     }
-    
-    void Start()
-    {
-        resetParameters();
 
+    private void OnStateChangeMenuChange(GameManager.GameState newState)
+    {
+        if (newState == GameManager.GameState.PlayGame)
+        {
+            InitFunction();
+        }
     }
+
+  
 
     void PlayerHealthLoos()
     {
@@ -39,9 +47,11 @@ public class HealthController : MonoBehaviour
     }
  
 
-    void resetParameters()
+    void InitFunction()
     {
         actualPlayerHealth = InitialPlayerHealt;
         healthScale = GameplayManager.InitMentalHealth;
+        sliderPlayer.value = actualPlayerHealth / healthScale;
+
     }
 }
