@@ -49,7 +49,7 @@ public class GameplayManager : MonoBehaviour
     {
         gameStarted = true;
         ActualMentalHealth = InitMentalHealth;
-        Instantiate(player, initPos, Quaternion.identity);
+        //Instantiate(player, initPos, Quaternion.identity);
 
         //move to the parrent gameObject
 

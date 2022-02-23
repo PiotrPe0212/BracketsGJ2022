@@ -11,6 +11,7 @@ public class DoorController : MonoBehaviour
     void FixedUpdate()
     {
         if (FirstSwitch.isSwitchOn && SecondSwitch.isSwitchOn)
-            gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+            Destroy(gameObject);
+
     }
 }
