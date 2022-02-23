@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8503676101095808994}
   - component: {fileID: 2353105609619685183}
   - component: {fileID: 9178110134607965769}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 74
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ddf587e13b8f3424c905b8ae08cf8d5c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -106,6 +106,8 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+  animator: {fileID: 8503676101095808994}
+  spriteRenderer: {fileID: 8503676101095809004}
 --- !u!50 &8503676101095809006
 Rigidbody2D:
   serializedVersion: 4
@@ -120,7 +122,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -136,7 +138,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 8503676101095809000}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b2a983ce228aa3f43b75e9f095c4cfb8, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
