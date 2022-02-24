@@ -9,6 +9,7 @@ public class movement : MonoBehaviour
     public float jumpSpeed;
     public bool isGrounded;
     private Rigidbody2D rb;
+    //private Animator Animator;
     public LayerMask groundMask;
     private bool isTouchingLeft;
     private bool isTouchingRight;
@@ -44,6 +45,7 @@ public class movement : MonoBehaviour
             animator.SetBool("IsWalking", false);
         }
 
+     
 
         if ((!isTouchingLeft && !isTouchingRight) || isGrounded)
         {
@@ -103,11 +105,32 @@ public class movement : MonoBehaviour
         Gizmos.DrawCube(new Vector2(gameObject.transform.position.x + 1f, gameObject.transform.position.y), new Vector2(0.2f, 0.9f));
     }
 
+
+    private void FixedUpdate()
+    {
+        AnimatorFunction();
+    }
     void SetJumpingToFalse()
     {
         wallJumping = false;
     }
 
+    void AnimatorFunction()
+    {
+        if(moveInput == 0)
+        {
+            Animator.SetBool("IsWaiting", true);
+            Animator.SetBool("IsWalking", false);
+        }
+        else
+        {
+            Animator.SetBool("IsWaiting", false);
+            Animator.SetBool("IsWalking", true);
+        }
+
+        if (Input.GetKeyDown("space") && isGrounded) Animator.SetBool("IsJumping", true);
+
+    }
 
 
 }

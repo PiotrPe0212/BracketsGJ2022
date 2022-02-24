@@ -7,11 +7,11 @@ public class GameplayManager : MonoBehaviour
 
     [SerializeField] private GameObject player;
     [SerializeField] private Vector3 initPos = new Vector3(0, 0, 0);
-    public static int InitMentalHealth = 10;
+    public static int InitMentalHealth = 10 ;
 
     private bool gameStarted = false;
     public int ActualMentalHealth;
-    public int demageValue;
+    public int damageValue;
 
     private void Awake()
     {
@@ -26,23 +26,22 @@ public class GameplayManager : MonoBehaviour
    
     private void OnStateChangeMenuChange(GameManager.GameState newState)
     {
-        if(newState == GameManager.GameState.PlayGame)
-        {
-            InitFunction();
-        }
-
+       
+        if(newState == GameManager.GameState.PlayGame) InitFunction();
+      
     }
 
     private void ChangeHealth()
     {
-        ActualMentalHealth -= demageValue;
+        ActualMentalHealth -= damageValue;
     }
 
 
     void FixedUpdate()
     {
         if (!gameStarted) return;
-        if (ActualMentalHealth <= 0)  GameManager.Instance.GameStateUpdate(GameManager.GameState.Lose);
+        if (ActualMentalHealth <= 0) ChangeStateToLose();
+        
     }
 
     private void InitFunction()
@@ -54,5 +53,12 @@ public class GameplayManager : MonoBehaviour
         //move to the parrent gameObject
 
 
+    }
+
+    private void ChangeStateToLose()
+    {
+        print("OK");
+        GameManager.Instance.GameStateUpdate(GameManager.GameState.Lose);
+       gameStarted = false;
     }
 }
