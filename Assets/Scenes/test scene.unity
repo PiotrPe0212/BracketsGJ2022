@@ -394,6 +394,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11480e1693e56db4899532a8bdd29bb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &658307997 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9178110134607965769, guid: 45242f69e0f3c7549bf76fdc77cfac59, type: 3}
+  m_PrefabInstance: {fileID: 8503676101035782187}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658307995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11480e1693e56db4899532a8bdd29bb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &658308001 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8503676101095808995, guid: 45242f69e0f3c7549bf76fdc77cfac59, type: 3}
@@ -2129,6 +2140,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2353105609619685183, guid: 45242f69e0f3c7549bf76fdc77cfac59, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 658307997}
+    - target: {fileID: 2353105609619685183, guid: 45242f69e0f3c7549bf76fdc77cfac59, type: 3}
+      propertyPath: PlayerBar
+      value: 
+      objectReference: {fileID: 67725146}
+    - target: {fileID: 2353105609619685183, guid: 45242f69e0f3c7549bf76fdc77cfac59, type: 3}
+      propertyPath: healthScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2353105609619685183, guid: 45242f69e0f3c7549bf76fdc77cfac59, type: 3}
+      propertyPath: InitialPlayerHealt
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8503676101095808995, guid: 45242f69e0f3c7549bf76fdc77cfac59, type: 3}
       propertyPath: m_RootOrder
       value: 1
