@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     private bool activatePressed;
     private bool switchCollision;
-  private Switch SwitchFunc;
+    private Switch SwitchFunc;
 
     public static event Action DamageAdded;
 
