@@ -30,7 +30,7 @@ public class movement : MonoBehaviour
         if(moveInput != 0)
         {
             animator.SetBool("IsWalking", true);
-            print(moveInput);
+            
             if(moveInput == -1)
             {
                 spriteRenderer.flipX = true;
