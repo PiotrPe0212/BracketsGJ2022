@@ -106,31 +106,31 @@ public class movement : MonoBehaviour
     }
 
 
-    private void FixedUpdate()
-    {
-        AnimatorFunction();
-    }
+    // private void FixedUpdate()
+    // {
+    //     AnimatorFunction();
+    // }
     void SetJumpingToFalse()
     {
         wallJumping = false;
     }
 
-    void AnimatorFunction()
-    {
-        if(moveInput == 0)
-        {
-            Animator.SetBool("IsWaiting", true);
-            Animator.SetBool("IsWalking", false);
-        }
-        else
-        {
-            Animator.SetBool("IsWaiting", false);
-            Animator.SetBool("IsWalking", true);
-        }
+    // void AnimatorFunction()
+    // {
+    //     if(moveInput == 0)
+    //     {
+    //         Animator.SetBool("IsWaiting", true);
+    //         Animator.SetBool("IsWalking", false);
+    //     }
+    //     else
+    //     {
+    //         Animator.SetBool("IsWaiting", false);
+    //         Animator.SetBool("IsWalking", true);
+    //     }
 
-        if (Input.GetKeyDown("space") && isGrounded) Animator.SetBool("IsJumping", true);
+    //     if (Input.GetKeyDown("space") && isGrounded) Animator.SetBool("IsJumping", true);
 
-    }
+    // }
 
 
 }
