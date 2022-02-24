@@ -57,7 +57,6 @@ public class GameplayManager : MonoBehaviour
 
     private void ChangeStateToLose()
     {
-        print("OK");
         GameManager.Instance.GameStateUpdate(GameManager.GameState.Lose);
        gameStarted = false;
     }

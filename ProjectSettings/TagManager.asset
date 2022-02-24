@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Switch
   - Damage
+  - Light
   layers:
   - Default
   - TransparentFX
