@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        GameStateUpdate(GameState.MainMenu);
+        GameStateUpdate(State);
     }
     public void GameStateUpdate(GameState newState)
     {
