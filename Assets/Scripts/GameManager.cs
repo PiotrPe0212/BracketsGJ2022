@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
             default:
                 throw new ArgumentOutOfRangeException(nameof (newState), newState, null);
         }
-
+        print(newState);
         OnGameStateChange?.Invoke(newState);
     }
 

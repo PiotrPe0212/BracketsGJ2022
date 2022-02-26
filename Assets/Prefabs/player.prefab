@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 10
-  jumpSpeed: 10
+  jumpSpeed: 12.5
   isGrounded: 0
   groundMask:
     serializedVersion: 2

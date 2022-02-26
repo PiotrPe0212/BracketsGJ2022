@@ -12,11 +12,13 @@ public class GameplayManager : MonoBehaviour
     private bool gameStarted = false;
     public int ActualMentalHealth;
     public int damageValue;
+    private Vector3 initPlayerPos;
 
     private void Awake()
     {
         GameManager.OnGameStateChange += OnStateChangeMenuChange;
         PlayerController.DamageAdded += ChangeHealth;
+        initPlayerPos = player.transform.position;
     }
     private void OnDestroy()
     {
@@ -46,11 +48,10 @@ public class GameplayManager : MonoBehaviour
 
     private void InitFunction()
     {
+        print(initPlayerPos);
         gameStarted = true;
         ActualMentalHealth = InitMentalHealth;
-        //Instantiate(player, initPos, Quaternion.identity);
-
-        //move to the parrent gameObject
+        player.transform.position = initPlayerPos;
 
 
     }
