@@ -43,12 +43,11 @@ public class GameplayManager : MonoBehaviour
     {
         if (!gameStarted) return;
         if (ActualMentalHealth <= 0) ChangeStateToLose();
-        
+        if(player.transform.position.y <= -190) ChangingStateToWin();
     }
 
     private void InitFunction()
     {
-        print(initPlayerPos);
         gameStarted = true;
         ActualMentalHealth = InitMentalHealth;
         player.transform.position = initPlayerPos;
@@ -60,5 +59,11 @@ public class GameplayManager : MonoBehaviour
     {
         GameManager.Instance.GameStateUpdate(GameManager.GameState.Lose);
        gameStarted = false;
+    }
+
+    private void ChangingStateToWin()
+    {
+        GameManager.Instance.GameStateUpdate(GameManager.GameState.Win);
+        gameStarted = false;
     }
 }

@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-
+    public SpriteRenderer spriteRenderer;
     public List<Transform> Patrol = new List<Transform>();
     private int PatrolNum = 0;
     private float eventTime;
     private Vector2 dir;
     private Vector2 olddir;
     private bool justWaiting;
+    private float oldPos;
 
     // settings
     public float speed = 5;
@@ -40,10 +41,12 @@ public class EnemyController : MonoBehaviour
     {
         if (justWaiting) return;
 
+        spriteRenderer.flipX = oldPos < transform.position.x;
+        oldPos = transform.position.x;
         olddir = dir;
         dir = (Patrol[PatrolNum].position - transform.position).normalized;
         transform.Translate(dir* Time.deltaTime * speed);
-        if(Vector2.Distance(Patrol[PatrolNum].position, transform.position) < 1)
+        if(Vector2.Distance(Patrol[PatrolNum].position, transform.position) < 2)
         {
             PatrolNum += 1;
             if(PatrolNum >= Patrol.Count)
@@ -61,7 +64,7 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.tag != "Light") return;
         justWaiting = true;
-        gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+        gameObject.GetComponent<SpriteRenderer>().color = new Color32(146, 255, 143, 255);
         transform.gameObject.tag = "Untagged";
         StartTimer(waitingTime);
     }

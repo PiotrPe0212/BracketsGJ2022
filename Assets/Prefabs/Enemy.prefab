@@ -144,8 +144,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e02e487160fc52e4186f288f8d2de6c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 3017160649606548315}
   Patrol:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   speed: 5
+  waitingTime: 5

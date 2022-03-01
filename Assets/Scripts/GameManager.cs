@@ -2,10 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-
+    [SerializeField] private AudioSource menuMusic;
+    [SerializeField] private AudioSource gameMusic;
     public static GameManager Instance;
 
     public GameState State;
@@ -30,15 +32,20 @@ public class GameManager : MonoBehaviour
         {
             case GameState.MainMenu:
                 Time.timeScale = 0;
+                menuMusic.Play();
+                gameMusic.Stop();
                 break;
             case GameState.PlayGame:
                 Time.timeScale = 1;
+                menuMusic.Stop();
+                gameMusic.Play();
                 break;
             case GameState.Lose:
                 Time.timeScale = 0;
                 break;
             case GameState.Win:
-                Time.timeScale = 0;
+                Time.timeScale = 1;
+                SceneManager.LoadScene("EndScene Test");
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof (newState), newState, null);

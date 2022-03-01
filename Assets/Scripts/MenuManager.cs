@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] private GameObject _menuPanel, _losePanel, _winPanel;
+    [SerializeField] private GameObject _menuPanel, _losePanel;
 
 
 
@@ -21,7 +21,7 @@ public class MenuManager : MonoBehaviour
     {
         _menuPanel.SetActive(newState == GameManager.GameState.MainMenu);
         _losePanel.SetActive(newState == GameManager.GameState.Lose);
-        _winPanel.SetActive(newState == GameManager.GameState.Win);
+      
 
     }
 

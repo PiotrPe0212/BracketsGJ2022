@@ -6,16 +6,18 @@ using UnityEngine;
 public class Switch : MonoBehaviour
 {
     public bool isSwitchOn;
-
+    private Color32 color;
+    public Sprite turnedOnSprite;
     private void Start()
     {
         isSwitchOn = false;
+        
     }
 
     public void SwichingOn()
     {
         isSwitchOn = true;
-        gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        gameObject.GetComponent<SpriteRenderer>().sprite = turnedOnSprite;
        
     }
 

@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
-  m_Name: Main PROFILE
+  m_Name: Top
   m_EditorClassIdentifier: 
   settings:
   - {fileID: -14393804295928961}
@@ -227,13 +227,13 @@ MonoBehaviour:
     value: 100
   lift:
     overrideState: 1
-    value: {x: 1, y: 0.98354053, z: 0.9785142, w: 0}
+    value: {x: 0.93922937, y: 0.9686386, z: 1, w: 0}
   gamma:
     overrideState: 1
     value: {x: 0.99682385, y: 0.98352146, z: 1, w: 0}
   gain:
     overrideState: 1
-    value: {x: 0.96487164, y: 1, z: 0.89976346, w: 0}
+    value: {x: 0.9891506, y: 1, z: 0.96830165, w: 0}
   masterCurve:
     overrideState: 1
     value:
